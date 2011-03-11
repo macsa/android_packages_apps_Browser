@@ -35,7 +35,7 @@
                 android:entries="@array/pref_default_zoom_choices"
                 android:entryValues="@array/pref_default_zoom_values"
                 android:dialogTitle="@string/pref_default_zoom_dialogtitle" />
-
+                
         <CheckBoxPreference
                 android:key="load_page"
                 android:defaultValue="true"
@@ -187,10 +187,17 @@
                 android:title="@string/pref_security_show_security_warning"
                 android:summary="@string/pref_security_show_security_warning_summary" />
 
-            
     </PreferenceCategory>
+
     <PreferenceCategory
             android:title="@string/pref_extras_title">
+            <ListPreference
+                android:title="@string/pref_select_user_agent"
+                android:key="user_agent"
+                android:defaultValue="0"
+                android:entries="@array/pref_development_ua_choices"
+                android:entryValues="@array/pref_development_ua_values"
+                android:dialogTitle="@string/pref_select_user_agent" />
 
             <!-- Entries and values in this list are set dynamically. -->
             <com.android.browser.search.SearchEnginePreference

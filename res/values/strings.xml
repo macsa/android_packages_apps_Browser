@@ -753,4 +753,8 @@
     <string name="error_console_eval_text_hint" translatable="false">Evaluate JavaScript</string>
     <string name="error_console_eval_button_text" translatable="false">Evaluate</string>
 
+    <string name="pref_select_user_agent">Select User Agent</string>
+    <string name="incog_tab">Enable Private Mode</string>
+    <string name="dis_incog_tab">Disable Private Mode</string>
+
 </resources>

@@ -193,17 +193,22 @@ class BrowserSettings extends Observable {
             WebSettings s = mSettings;
 
             s.setLayoutAlgorithm(b.layoutAlgorithm);
-            if (b.userAgent == 0) {
-                // use the default ua string
-                s.setUserAgentString(null);
-            } else if (b.userAgent == 1) {
-                s.setUserAgentString(DESKTOP_USERAGENT);
-            } else if (b.userAgent == 2) {
-                s.setUserAgentString(IPHONE_USERAGENT);
-            } else if (b.userAgent == 3) {
-                s.setUserAgentString(IPAD_USERAGENT);
-            } else if (b.userAgent == 4) {
-                s.setUserAgentString(FROYO_USERAGENT);
+            switch (b.userAgent){
+                case 0:
+                    s.setUserAgentString(null);
+                    break;
+                case 1:
+                    s.setUserAgentString(DESKTOP_USERAGENT);
+                    break;
+                case 2:
+                    s.setUserAgentString(IPHONE_USERAGENT);
+                    break;
+                case 3:
+                    s.setUserAgentString(IPAD_USERAGENT);
+                    break;
+                case 4:
+                    s.setUserAgentString(FROYO_USERAGENT);
+                    break;
             }
             s.setUseWideViewPort(b.useWideViewPort);
             s.setLoadsImagesAutomatically(b.loadsImagesAutomatically);
@@ -357,7 +362,7 @@ class BrowserSettings extends Observable {
         defaultTextEncodingName =
                 p.getString(PREF_DEFAULT_TEXT_ENCODING,
                         defaultTextEncodingName);
-
+	userAgent = Integer.parseInt(p.getString("user_agent", "0"));
         showDebugSettings =
                 p.getBoolean(PREF_DEBUG_SETTINGS, showDebugSettings);
         // Debug menu items have precidence if the menu is visible
@@ -381,7 +386,6 @@ class BrowserSettings extends Observable {
             tracing = p.getBoolean("enable_tracing", tracing);
             lightTouch = p.getBoolean("enable_light_touch", lightTouch);
             navDump = p.getBoolean("enable_nav_dump", navDump);
-            userAgent = Integer.parseInt(p.getString("user_agent", "0"));
         }
         // JS flags is loaded from DB even if showDebugSettings is false,
         // so that it can be set once and be effective all the time.
