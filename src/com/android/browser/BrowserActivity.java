@@ -808,6 +808,7 @@ public class BrowserActivity extends Activity
         registerReceiver(mNetworkStateIntentReceiver,
                          mNetworkStateChangedFilter);
         WebView.enablePlatformNotifications();
+        toggleNotificationBar(!mSettings.isFullScreen());
     }
 
     /**
@@ -1379,7 +1380,11 @@ public class BrowserActivity extends Activity
                     /* Need to open new tab before removing or you will
                      * get an FC.
                      */
+/*
                     Tab t = openTab(mSettings.getHomePage());
+*/
+                    Tab t = openTabAndShow(mSettings.getHomePage(),
+                                                            isIncognito, null);
                     int i;
                     for (i=0;i<mTabControl.getTabCount()-1;i++){
                         /*
@@ -1395,7 +1400,12 @@ public class BrowserActivity extends Activity
                     /* Need to open new tab before removing or you will
                      * get an FC.
                      */
+/*
                     Tab t = openTab(mSettings.getHomePage());
+*/
+                    Tab t = openTabAndShow(mSettings.getHomePage(),
+                                                            isIncognito, null);
+
                     int i;
                     for (i=0;i<mTabControl.getTabCount()-1;i++){
                         mTabControl.removeTab(mTabControl.getTab(i));
@@ -1913,7 +1923,7 @@ public class BrowserActivity extends Activity
             }
             return t;
         } else {
-            return openTabAndShow(url, false, null);
+            return openTabAndShow(url, isIncognito, null);
         }
     }
 

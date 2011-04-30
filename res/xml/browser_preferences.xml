@@ -37,6 +37,16 @@
                 android:dialogTitle="@string/pref_default_zoom_dialogtitle" />
                 
         <CheckBoxPreference
+                android:key="show_zoom_controls"
+                android:defaultValue="true"
+                android:title="@string/pref_show_zoom_controls" />
+                
+        <CheckBoxPreference
+                android:key="full_screen_mode"
+                android:defaultValue="false"
+                android:title="@string/pref_full_screen_mode" />
+                
+        <CheckBoxPreference
                 android:key="load_page"
                 android:defaultValue="true"
                 android:title="@string/pref_content_load_page"
@@ -97,6 +107,12 @@
                 android:title="@string/pref_content_homepage"
                 android:hint="@string/http"
                 android:inputType="textUri|textMultiLine" />
+
+        <CheckBoxPreference
+                android:key="invert_color"
+                android:defaultValue="false"
+                android:title="@string/pref_content_invert_color"
+                android:summary="@string/pref_content_invert_color_summary" />
 
     </PreferenceCategory>
 
